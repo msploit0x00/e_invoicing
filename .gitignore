@@ -3,5 +3,4 @@
 *.egg-info
 *.swp
 tags
-node_modules
-__pycache__
+e_invoicing/docs/current

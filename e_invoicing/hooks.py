@@ -1,10 +1,15 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+from . import __version__ as app_version
+
 app_name = "e_invoicing"
 app_title = "E Invoicing"
-app_publisher = "ds"
-app_description = "ds"
-app_email = "ds@ds.com"
-app_license = "mit"
-# required_apps = []
+app_publisher = "Peter maged"
+app_description = "E Invoicing"
+app_icon = "octicon octicon-file-directory"
+app_color = "grey"
+app_email = "eng.peter.maged@gmail.com"
+app_license = "MIT"
 
 # Includes in <head>
 # ------------------
@@ -28,15 +33,16 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+    "Sales Invoice" : "e_invoicing/doctype/sales_invoice/sales_invoice.js"
+}
+
+doctype_list_js = {
+    "Sales Invoice" : "e_invoicing/doctype/sales_invoice/sales_invoice_list.js"
+}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
-
-# Svg Icons
-# ------------------
-# include app icons in desk
-# app_include_icons = "e_invoicing/public/icons.svg"
 
 # Home Pages
 # ----------
@@ -46,7 +52,7 @@ app_license = "mit"
 
 # website user home page (by Role)
 # role_home_page = {
-# 	"Role": "home_page"
+#	"Role": "home_page"
 # }
 
 # Generators
@@ -55,42 +61,12 @@ app_license = "mit"
 # automatically create page for each record of this doctype
 # website_generators = ["Web Page"]
 
-# Jinja
-# ----------
-
-# add methods and filters to jinja environment
-# jinja = {
-# 	"methods": "e_invoicing.utils.jinja_methods",
-# 	"filters": "e_invoicing.utils.jinja_filters"
-# }
-
 # Installation
 # ------------
 
 # before_install = "e_invoicing.install.before_install"
-# after_install = "e_invoicing.install.after_install"
-
-# Uninstallation
-# ------------
-
-# before_uninstall = "e_invoicing.uninstall.before_uninstall"
-# after_uninstall = "e_invoicing.uninstall.after_uninstall"
-
-# Integration Setup
-# ------------------
-# To set up dependencies/integrations with other apps
-# Name of the app being installed is passed as an argument
-
-# before_app_install = "e_invoicing.utils.before_app_install"
-# after_app_install = "e_invoicing.utils.after_app_install"
-
-# Integration Cleanup
-# -------------------
-# To clean up dependencies/integrations with other apps
-# Name of the app being uninstalled is passed as an argument
-
-# before_app_uninstall = "e_invoicing.utils.before_app_uninstall"
-# after_app_uninstall = "e_invoicing.utils.after_app_uninstall"
+after_install = "e_invoicing.install.after_install"
+after_migrate = "e_invoicing.install.after_install"
 
 # Desk Notifications
 # ------------------
@@ -122,34 +98,43 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Sales Invoice": {
+		"validate": "e_invoicing.e_invoicing.doctype.sales_invoice.sales_invoice.validate",
+		# "on_cancel": "method"
+		# "on_trash": "method"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"e_invoicing.tasks.all"
-# 	],
-# 	"daily": [
-# 		"e_invoicing.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"e_invoicing.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"e_invoicing.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"e_invoicing.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	# "all": [
+	# 	"e_invoicing.tasks.all"
+	# ],
+	# "daily": [
+	# 	"e_invoicing.tasks.daily"
+	# ],
+	# "hourly": [
+	# 	"e_invoicing.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"e_invoicing.tasks.weekly"
+	# ]
+	# "monthly": [
+	# 	"e_invoicing.tasks.monthly"
+	# ]
+ "cron": {
+		"0/1 * * * *": [
+			"e_invoicing.e_invoicing.doctype.invoice_status.invoice_status.update_job",
+		],
+  
+		"0 0 * * *": [
+			# "e_invoicing.e_invoicing.doctype.sales_invoice.sales_invoice.get_documents_status_job",
+		]
+	},
+}
 
 # Testing
 # -------
@@ -174,44 +159,30 @@ app_license = "mit"
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
 
-# Ignore links to specified DocTypes when deleting documents
-# -----------------------------------------------------------
-
-# ignore_links_on_delete = ["Communication", "ToDo"]
-
-# Request Events
-# ----------------
-# before_request = ["e_invoicing.utils.before_request"]
-# after_request = ["e_invoicing.utils.after_request"]
-
-# Job Events
-# ----------
-# before_job = ["e_invoicing.utils.before_job"]
-# after_job = ["e_invoicing.utils.after_job"]
 
 # User Data Protection
 # --------------------
 
-# user_data_fields = [
-# 	{
-# 		"doctype": "{doctype_1}",
-# 		"filter_by": "{filter_by}",
-# 		"redact_fields": ["{field_1}", "{field_2}"],
-# 		"partial": 1,
-# 	},
-# 	{
-# 		"doctype": "{doctype_2}",
-# 		"filter_by": "{filter_by}",
-# 		"partial": 1,
-# 	},
-# 	{
-# 		"doctype": "{doctype_3}",
-# 		"strict": False,
-# 	},
-# 	{
-# 		"doctype": "{doctype_4}"
-# 	}
-# ]
+user_data_fields = [
+	{
+		"doctype": "{doctype_1}",
+		"filter_by": "{filter_by}",
+		"redact_fields": ["{field_1}", "{field_2}"],
+		"partial": 1,
+	},
+	{
+		"doctype": "{doctype_2}",
+		"filter_by": "{filter_by}",
+		"partial": 1,
+	},
+	{
+		"doctype": "{doctype_3}",
+		"strict": False,
+	},
+	{
+		"doctype": "{doctype_4}"
+	}
+]
 
 # Authentication and authorization
 # --------------------------------
@@ -219,11 +190,4 @@ app_license = "mit"
 # auth_hooks = [
 # 	"e_invoicing.auth.validate"
 # ]
-
-# Automatically update python controller files with type annotations for this app.
-# export_python_type_annotations = True
-
-# default_log_clearing_doctypes = {
-# 	"Logging DocType Name": 30  # days to retain logs
-# }
 

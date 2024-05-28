@@ -1,0 +1,257 @@
+{
+ "actions": [],
+ "autoname": "Inv-Status-.#####:",
+ "creation": "2021-10-12 22:04:25.585110",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sales_invoice",
+  "invinternalid",
+  "invstatus",
+  "longid",
+  "invuuid",
+  "column_break_18",
+  "submissionid",
+  "invstatuscode",
+  "hashkey",
+  "invdate",
+  "transdate",
+  "error_section",
+  "errorcode",
+  "erroemessage",
+  "errordetailsmessage",
+  "column_break_15",
+  "errortarget",
+  "errordetailstarget",
+  "properitypath",
+  "section_break_19",
+  "createddate",
+  "column_break_21",
+  "modifieddate",
+  "seen",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "allow_on_submit": 1,
+   "fieldname": "sales_invoice",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "invstatus",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "InvStatus",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "longid",
+   "fieldtype": "Data",
+   "label": "longId",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "invuuid",
+   "fieldtype": "Data",
+   "label": "InvUuid",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "submissionid",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "SubmissionID",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "invstatuscode",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "InvStatusCode",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "hashkey",
+   "fieldtype": "Data",
+   "label": "HashKey",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "invdate",
+   "fieldtype": "Datetime",
+   "in_filter": 1,
+   "in_standard_filter": 1,
+   "label": "InvDate",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Now",
+   "fieldname": "transdate",
+   "fieldtype": "Datetime",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "TransDate",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "error_section",
+   "fieldtype": "Section Break",
+   "label": "Error",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "errorcode",
+   "fieldtype": "Data",
+   "label": "ErrorCode",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "erroemessage",
+   "fieldtype": "Text",
+   "label": "ErroeMessage",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "errordetailsmessage",
+   "fieldtype": "Text",
+   "label": "ErrorDetailsMessage",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "errortarget",
+   "fieldtype": "Data",
+   "label": "ErrorTarget",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "errordetailstarget",
+   "fieldtype": "Text",
+   "label": "ErrorDetailsTarget",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "properitypath",
+   "fieldtype": "Text",
+   "label": "ProperityPath",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "section_break_19",
+   "fieldtype": "Section Break",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "createddate",
+   "fieldtype": "Datetime",
+   "label": "CreatedDate",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "modifieddate",
+   "fieldtype": "Datetime",
+   "label": "ModifiedDate",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "seen",
+   "fieldtype": "Check",
+   "label": "Seen",
+   "options": "0",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "invinternalid",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "InvInternalID",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Invoice Status",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2021-12-06 20:33:59.308022",
+ "modified_by": "Administrator",
+ "module": "E Invoicing",
+ "name": "Invoice Status",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

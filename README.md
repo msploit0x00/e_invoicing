@@ -1,7 +1,7 @@
 ## E Invoicing
 
-ds
+E Invoicing
 
 #### License
 
-mit
+MIT
